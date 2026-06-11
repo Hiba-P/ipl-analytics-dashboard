@@ -1,76 +1,70 @@
-📌 Project Overview
-This project transforms raw IPL 2025 CSV data into a fully styled analytics dashboard using Python in Google Colab. It covers the complete data science workflow:
-Raw CSV → Data Cleaning → EDA → Visualisation → Dashboard → ML Prediction
-Dataset: Two CSV files from Kaggle — matches.csv (match-level) and deliveries.csv (ball-by-ball)
-🎯 What's Inside
-TaskTitleChart Type1Matches Won per TeamBar Chart2Most Successful TeamSeaborn Countplot3Toss Decision AnalysisDonut Pie Chart4Top 10 Player of the MatchHorizontal Bar5Venue AnalysisBar Chart6Team Performance DashboardSeaborn Barplot7Winning Percentage per TeamGradient Bar Chart8Full Dashboard (2×2 Grid)Multi-Panel Figure⭐ BonusTop Batters & BowlersHorizontal Bar🤖 MLMatch Winner PredictorRandom Forest
-🖼️ Dashboard Preview
-Run the notebook and your task8_full_dashboard.png will look like this ↓
-┌─────────────────────┬────────────────────┐
-│  🏆 Top 5 Teams     │  🎲 Toss Decisions │
-│  by Wins (bar)      │  (donut chart)     │
-├─────────────────────┼────────────────────┤
-│  🏟️ Top 5 Venues   │  ⭐ Top 5 Player   │
-│  (horiz. bar)       │  of Match (bar)    │
-└─────────────────────┴────────────────────┘
-🛠️ Tech Stack
-LibraryPurposepandasData loading, cleaning, groupby analysismatplotlibBase plotting engine, subplot gridsseabornStyled countplots and barplotsscikit-learnRandom Forest, Label Encoding, train/test split
-🚀 How to Run
-Option A — Google Colab (Recommended)
-Open Google Colab
-Create a new notebook and paste the code from IPL_2025_Analytics_Dashboard.py
-Download matches.csv and deliveries.csv from Kaggle IPL Dataset
-Run Cell 2 — a file picker will appear; upload both CSVs
-Run all remaining cells top to bottom
-Option B — Local / VS Code
-bashgit clone https://github.com/YOUR_USERNAME/ipl-2025-analytics-dashboard.git
-cd ipl-2025-analytics-dashboard
-pip install pandas matplotlib seaborn scikit-learn
-# Place matches.csv and deliveries.csv in the project folder, then:
-python IPL_2025_Analytics_Dashboard.py
-📂 Repository Structure
-ipl-2025-analytics-dashboard/
-│
-├── IPL_2025_Analytics_Dashboard.py   # Complete Python script
-├── README.md                         # This file
-├── requirements.txt                  # Dependencies
-│
-└── outputs/                          # Generated charts (after running)
-    ├── task1_wins_bar.png
-    ├── task2_seaborn_wins.png
-    ├── task3_toss_donut.png
-    ├── task4_top_players.png
-    ├── task5_venues.png
-    ├── task6_performance_dashboard.png
-    ├── task7_win_percentage.png
-    ├── task8_full_dashboard.png
-    ├── bonus_top_batters.png
-    ├── bonus_top_bowlers.png
-    └── ml_feature_importance.png
-🤖 ML Bonus — Match Winner Predictor
-Uses a Random Forest Classifier trained on:
-Team 1 & Team 2 (label-encoded)
-Toss winner
-Toss decision (bat / field)
-pythonfrom sklearn.ensemble import RandomForestClassifier
-# ...see notebook for full pipeline
-Output: Accuracy score + feature importance plot showing which factors matter most for predicting the winner.
-📊 Key Insights Uncovered
-Which team dominated IPL 2025
-Whether teams prefer batting or fielding after winning the toss
-The most consistent match-winner (Player of the Match count)
-Primary IPL venue by match count
-Team winning percentages (normalised)
-Top run-scorers and wicket-takers from ball-by-ball data
-📦 requirements.txt
-pandas
-matplotlib
-seaborn
-scikit-learn
-👩‍💻 Author
-Hiba Puthiyedath
-🔗 LinkedIn
-💻 GitHub
-📝 License
-This project is open-source under the MIT License.
-is this is the read me
+# 🏏 IPL Analytics Dashboard
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google%20Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
+</p>
+
+> End-to-end IPL sports analytics project — data cleaning, visualisation dashboard, and ML match prediction using Python in Google Colab.
+
+---
+
+## 📌 Project Overview
+
+| | |
+|---|---|
+| **Dataset** | IPL 2008–2020 (matches.csv + deliveries.csv) |
+| **Platform** | Google Colab |
+| **Tech** | Python, Pandas, Matplotlib, Seaborn, Scikit-learn |
+
+---
+
+## 🎯 Tasks
+
+| Task | Description | Chart |
+|------|-------------|-------|
+| 1 | Matches Won per Team | Bar Chart |
+| 2 | Most Successful Team | Seaborn Countplot |
+| 3 | Toss Decision Analysis | Donut Chart |
+| 4 | Top 10 Player of the Match | Horizontal Bar |
+| 5 | Venue Analysis | Bar Chart |
+| 6 | Team Performance Dashboard | Seaborn Barplot |
+| 7 | Winning Percentage | Gradient Bar |
+| 8 | Full 2×2 Dashboard | Multi-Panel |
+| ⭐ | Top Batters & Bowlers | Horizontal Bar |
+| 🤖 | Match Winner Prediction | Random Forest |
+
+---
+
+## 🚀 How to Run
+
+1. Open [Google Colab](https://colab.research.google.com)
+2. Upload `matches.csv` and `deliveries.csv` from [Kaggle](https://www.kaggle.com/datasets/patrickb1912/ipl-complete-dataset-20082020)
+3. Paste code from `IPL_2025_Analytics_Dashboard.py`
+4. Run all cells top to bottom
+
+---
+
+## 📊 Key Insights
+
+- **Mumbai Indians** have the highest win rate at 13.21%
+- **64.2%** of teams choose to field after winning the toss
+- **AB de Villiers** won the most Player of the Match awards
+- **Eden Gardens** hosted the most matches
+- ML model accuracy: **~48%** using 4 features
+
+---
+
+## 👩‍💻 Author
+
+**Hiba Puthiyedath**
+&nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/hiba-puthiyedath)
+&nbsp;·&nbsp; [GitHub](https://github.com/Hiba-P)
+
+---
+
+<p align="center">Built with ❤️ · IGNOU MCA · Big Data Analytics</p>
